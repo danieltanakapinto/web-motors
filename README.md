@@ -20,7 +20,7 @@ O programa se constitui de dois principais jobs:
 2 - Jobs.block_sort_based_index_job - Match das palavras via word_id, ordenação e agrupamento para montagem do índice.
 
 # Observações realizadas
-Foram aplicadas remoções de pontuação e cleanup de dados, porém ainda assim algumas palavras apareceram de forma mau formatadas devido a cracterísticas realizadas dentro dos próprios textos e da língua inglesa como a presença de asteriscos para definições, aspas, etc. O processo resultou em aproximadamente 140k palavras únicas seguindo a regra que uma palavra é definida pela sua separação de um espaço. Compreende-se que para um match de palavras apenas reais seria necessária uma melhoria na criação da lookup table word + word_id
+Foram aplicadas remoções de pontuação e cleanup de dados, porém ainda assim algumas palavras apareceram de forma mal formatadas devido a cracterísticas realizadas dentro dos próprios textos e da língua inglesa como a presença de asteriscos para definições, aspas, etc. O processo resultou em aproximadamente 140k palavras únicas seguindo a regra que uma palavra é definida pela sua separação de um espaço. Compreende-se que para um match de palavras apenas reais seria necessária uma melhoria na criação da lookup table word + word_id
 
 # Melhorias possíveis de processamento
 Compreende-se que o job 1 pode ser melhorado caso novos documentos sejam adicionados. Atualmente ele captura todo um folder com arquivos para levantamento das palavras com word_id e word.
