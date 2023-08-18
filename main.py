@@ -16,10 +16,18 @@ class WordDict:
         self.document_string = document_string
 
     def get_word_set(self):
+        """
+        Returns a set of words based on a string
+        A word is defined by a whitespace split
+        """
         set_of_words = set(self.document_string.split(' '))
         return set_of_words
     
     def get_word_dict(self):
+        """
+        Converts the set format of words to a dictionary
+        with the configuration word and word_id
+        """
         set_of_words = self.get_word_set()
         word_dict = {}
         i = 0
@@ -39,6 +47,10 @@ class Jobs:
 
     @staticmethod
     def word_dict_job(folder):
+        """
+        This Job gets a string from all the text files inside a folder
+        after that it returns a dict with unique words with an word_id
+        """
         print("Running Job - word_dict_job...")
         documents_string = DocumentFolderString(folder=folder)
         string = documents_string.get_string_from_folder()
@@ -63,14 +75,19 @@ class Jobs:
                     'filepath': file,
                     'document_id': int(os.path.basename(file))
                 }
+                file_list.append(file_dict)
             except:
                 print(f"File found:{file} not in the integer desired format... skipping it from BSBI")
-            file_list.append(file_dict)
         file_list = ListUtils.sort_by_document_id(file_list)
         return file_list
 
     @staticmethod
     def block_sort_based_index_job(folder, word_dict):
+        """
+        Performs the Block Sort Based Index
+        It uses a sorted file list and uses the word_dict as a lookup table
+        After merging all the data from the lookup table, performs a sort and a groupby
+        """
         print("Running 2nd Job - BSBI...")
         files_sorted = Jobs.get_processing_job_list(folder=folder)
         full_list = []

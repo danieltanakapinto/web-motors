@@ -9,6 +9,9 @@ class DocumentFolderString:
         self.folder = folder
     
     def get_file_list_from_folder(self):
+        """
+        Return a list of files inside a folder to be read as string
+        """
         file_list = []
         for file_path in os.listdir(self.folder):
             if os.path.isfile(os.path.join(self.folder, file_path)):
@@ -17,7 +20,8 @@ class DocumentFolderString:
 
     def get_string_from_folder(self):
         """
-        Returns a appended string with words from a folder with different text files
+        Returns an appended string from a folder with different text files
+        It also performs a string cleanup to remove ponctuation from the text
         """
         files = self.get_file_list_from_folder()
         string_from_folder = ''

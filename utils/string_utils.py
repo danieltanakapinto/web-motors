@@ -10,7 +10,12 @@ class StringUtils:
     a cleanup on a given String removing ponctuation
     """
     @staticmethod
+    
     def cleanup(file_string):
+        """
+        Performs a cleanup removing ponctuantion, brackets,
+        parenthesis
+        """
         file_string = re.sub(r"[:,.;@#?!&$]+\ *", " ", file_string)\
         .replace('(','') \
         .replace(')','') \
@@ -22,6 +27,9 @@ class StringUtils:
     
     @staticmethod
     def read_file(file_path):
+        """
+        Performs a file read replacing linebreaks by space
+        """
         if os.path.isfile(file_path):
             with open(file_path, 'r', encoding=ENCODING) as file:
                 data = file.read().replace('\n', ' ')
