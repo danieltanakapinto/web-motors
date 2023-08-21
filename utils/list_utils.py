@@ -24,7 +24,7 @@ class ListUtils:
     @staticmethod
     def group_by_word_id(list):
         """
-        Performs a sort of a list of dicts by the word_id key
+        Performs a group by of a list of dicts by the word_id key
         """
         grouped_list = [{"word_id": key, "document_id": [(g['document_id']) for g in group]} 
             for key, group in groupby(list, lambda x: x['word_id'])]
