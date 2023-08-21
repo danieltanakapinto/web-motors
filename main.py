@@ -91,7 +91,6 @@ class Jobs:
         print("Running 2nd Job - BSBI...")
         files_sorted = Jobs.get_processing_job_list(folder=folder)
         full_list = []
-        i = 0
         for file in files_sorted:
             document_string = StringUtils.read_file(file.get('filepath'))
             document_string = StringUtils.cleanup(document_string)
@@ -102,7 +101,6 @@ class Jobs:
                     'document_id': file.get('document_id')
                 }
                 full_list.append(new_dict)
-            i = i +1
         sorted_full_list = ListUtils.sort_by_word_id(list=full_list)
         grouped_full_list = ListUtils.group_by_word_id(list=sorted_full_list)
         
