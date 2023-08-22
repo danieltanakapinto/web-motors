@@ -6,13 +6,13 @@ from utils.document_folder_string_utils import DocumentFolderString
 from utils.list_utils import ListUtils
 
 class WordDict:
-    def __init__(self, document_string:string):
-        """
+    """
         Receives a string
         and can generate an unique dict of words 
         with the following key-value configuration:
         word and word_id
-        """
+    """
+    def __init__(self, document_string:string):
         self.document_string = document_string
 
     def get_word_set(self):
