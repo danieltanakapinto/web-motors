@@ -54,8 +54,8 @@ class Jobs:
         print("Running Job - word_dict_job...")
         documents_string = DocumentFolderString(folder=folder)
         string = documents_string.get_string_from_folder()
-        word_set = WordDict(document_string=string)
-        word_dict = word_set.get_word_dict()
+        word_dict = WordDict(document_string=string)
+        word_dict = word_dict.get_word_dict()
         return word_dict
     
         
